@@ -43,4 +43,4 @@ Live Portfolio Website
 
 Feel free to connect with me through my GitHub profile or LinkedIn.
 * **GitHub:** https://www.github.com/vaibhav-umbarkar
-* **LinkedIn:** https://
+* **LinkedIn:** https://www.linkedin.com/in/vaibhav-umbarkar-832a65392
