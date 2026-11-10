@@ -273,9 +273,14 @@
                </section>
             </section>
             <hr class="horizantal_line">
-            <p class="copy_right">© Copyright 2025-26. Made by <a class="text-white" href="#"><u>Vaibhav Umbarkar</u></a></p>
+            <p class="copy_right">© Copyright <span id="copyright-year"></span>. Made by <a class="text-white" href="#"><u>Vaibhav Umbarkar</u></a></p>
         </section>
         <section class="them_line"></section>
     </section>
+
+    <script>
+        document.getElementById("copyright-year").textContent = new Date().getFullYear();
+    </script>
+
 </body>
 </html>
