@@ -156,12 +156,12 @@
     <section class="container-fluid text-center mt-5">
         <h2><B>PROJECTS</B></h2>
         <hr class="text_underline">
-        <p class="about_para">Explore hands-on projects covering AWS cloud infrastructure, Terraform, CI/CD automation, <br> container orchestration, and highly available deployment architectures.</p>
+        <p class="about_para">Explore hands-on projects covering AWS cloud infrastructure, <br> Terraform, CI/CD automation, container orchestration, and highly available deployment architectures.</p>
     </section>
 
     <section class="project_div row mr-0">
         <section class="col-lg-6">
-            <img class="project_img" src="img/img-5.png" alt="subtitle_studio">
+            <img class="project_img" src="img/img5.png" alt="subtitle_studio">
         </section>
         <section class="center_content col-lg-6">
             <h3 class="project_title"><b>Subtitle Studio</b></h3>
@@ -237,35 +237,81 @@
             </button>
         </section>
     </section>
-    
+
     <!-- CONTACT SECTION -->
-    <section class="relative_section mt-5">
-        <h2 class="form_title"><B>CONTACT</B></h2>
-        <hr class="text_underline_contact">
-        <img class="footer_bg_img" src="img/bg_img.jpg" alt="bg_img" id="contact">
-        <p class="form_para">Have a DevOps or Cloud Engineering opportunity, collaboration, or technical project in mind? Send me a message and I will get back to you.</p>
-        <section class="form_section container shadow-lg">    
-            <form class="form_div" id="myForm" method="POST" action="https://formsubmit.co/vaibhavumbarkar8485@gmail.com">
-                <section class="form-group">
-                  <label for="name"><b>Name*</b></label>
-                  <input id="input_tag" type="text" name="Name" class="form-control" placeholder="Enter your Name" required>
-                </section>
-                <section class="form-group">
-                  <label class="label_text" for="email"><b>E-mail*</b></label>
-                  <input id="input_tag" type="email" name="Email" class="form-control" placeholder="Enter your E-Mail" required>
-                </section>
-                <div class="form-floating">
-                    <label class="label_text" for="text"><b>Message*</b></label>
-                    <textarea id="input_tag" type="text" name="Message" class="form-control" placeholder="Leave a message here" id="floatingTextarea2" style="height: 200px" required></textarea>
+    <section id="contact" class="contact_wrapper">
+        <div class="container">
+            <div class="text-center">
+                <h2><b>CONTACT</b></h2>
+                <hr class="text_underline">
+                <p class="about_para mx-auto" style="max-width: 700px;">
+                    Have a DevOps or Cloud Engineering opportunity, collaboration, or technical project in mind? Send me a message or copy my email below.
+                </p>
+            </div>
+        
+            <div class="contact_card shadow-lg mt-5">
+                <div class="row g-0 align-items-stretch">
+                    <!-- Left Column: Direct Details (Aligns with Footer Left Column) -->
+                    <div class="col-lg-5 contact_info_side">
+                        <span class="availability_pill container">Open to DevOps &amp; Cloud Roles</span>
+                        
+                        <h5 class="fw-bold mt-5 display-6">Get In Touch</h5>
+                        <div class="mb-3">
+                            <a href="mailto:vaibhavumbarkar8485@gmail.com" class="fw-bold text-white text-decoration-none d-block mb-2">vaibhavumbarkar8485@gmail.com</a>
+                            <button type="button" onclick="copyEmailAddress()" class="btn btn-sm btn-outline-dark text-white px-3 py-2">
+                                <i class="bi bi-clipboard me-1"></i> <span id="copyLabel">Copy Email</span>
+                            </button>
+                        </div>
+                        <section>
+                            <a class="social_icons_2" href="https://www.linkedin.com/in/vaibhav-umbarkar-832a65392"><i class="bi bi-linkedin"></i></a>
+                            <a class="social_icons_2" href="https://www.github.com/vaibhav-umbarkar"><i class="bi bi-github"></i></a>
+                            <a class="social_icons_2" href="mailto:vaibhavumbarkar8485@gmail.com"><i class="bi bi-envelope-fill"></i></a>
+                        </section>
+                    </div>
+                
+                    <!-- Right Column: No-API Mailto Composer (Aligns with Footer Right Column) -->
+                    <div class="col-lg-7 contact_form_side">
+                        <h4 class="mb-4">Send a Message</h4>
+                        <form onsubmit="openMailClient(event)" class="w-100">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <input id="senderName" type="text" class="form-control contact_input" placeholder="Name" required>
+                                </div>
+                                <div class="col-12">
+                                    <input id="senderSubject" type="text" class="form-control contact_input" placeholder="Subject" required>
+                                </div>
+                                <div class="col-12">
+                                    <textarea id="senderMsg" class="form-control contact_input" rows="4" placeholder="Message" required></textarea>
+                                </div>
+                                <div class="col-12 text-end mt-4">
+                                    <button type="submit" class="button_2 btn mt-0">OPEN MAIL APP</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <section class="submit_btn_section form-group">
-                    <button class="button_2 btn" id="btn" type="submit">SUBMIT</button>
-                </section>
-                <input type="hidden" name="_captcha" value="true">
-                <input type="hidden" name="_next" value="__URL__/pages/thank_you.html">
-            </form>
-        </section>
+            </div>
+        </div>
     </section>
+    
+    <script>
+        function openMailClient(e) {
+            e.preventDefault();
+            const name = document.getElementById("senderName").value.trim();
+            const subject = document.getElementById("senderSubject").value.trim();
+            const msg = document.getElementById("senderMsg").value.trim();
+            const mailtoUrl = `mailto:vaibhavumbarkar8485@gmail.com?subject=${encodeURIComponent(subject + " - from " + name)}&body=${encodeURIComponent("Hi Vaibhav,\n\n" + msg + "\n\nBest,\n" + name)}`;
+            window.location.href = mailtoUrl;
+        }
+    
+        function copyEmailAddress() {
+            navigator.clipboard.writeText("vaibhavumbarkar8485@gmail.com").then(() => {
+                const label = document.getElementById("copyLabel");
+                label.textContent = "Copied!";
+                setTimeout(() => { label.textContent = "Copy Email"; }, 2000);
+            });
+        }
+    </script>
     
     <!-- FOOTER SECTION -->
     <section class="container-fluid" style="background-color: black;">
@@ -277,7 +323,7 @@
                 </section>
                 <section class="social_section col-md-6">
                     <section class="social_icons_align">
-                        <h5 class="text-light">SOCIAL</h5>
+                        <h5 class="text-light">Get In Touch</h5>
                     </section>
                     <section class="social_icons_align">
                         <a class="social_icons_2" href="https://www.linkedin.com/in/vaibhav-umbarkar-832a65392"><i class="bi bi-linkedin"></i></a>
